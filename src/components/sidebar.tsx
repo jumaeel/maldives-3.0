@@ -6,7 +6,7 @@ import { useState } from "react";
 import {
   HomeIcon, ChartBarIcon, StarIcon, MapIcon, ExclamationTriangleIcon,
   MegaphoneIcon, BuildingOffice2Icon, BookOpenIcon, AcademicCapIcon,
-  ChatBubbleLeftRightIcon, Bars3Icon, XMarkIcon,
+  ChatBubbleLeftRightIcon, Bars3Icon, XMarkIcon, RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import { navGroups } from "./nav";
 import { cn } from "./ui";
@@ -22,6 +22,7 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   BookOpen: BookOpenIcon,
   AcademicCap: AcademicCapIcon,
   ChatBubbleLeftRight: ChatBubbleLeftRightIcon,
+  RocketLaunch: RocketLaunchIcon,
 };
 
 function Brand() {

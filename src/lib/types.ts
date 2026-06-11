@@ -138,3 +138,48 @@ export interface LeaderEntry {
   points: number;
   badges: number;
 }
+
+export type InitiativeStatus = "Live" | "Beta" | "Building" | "Planned";
+
+export interface Initiative {
+  slug: string;
+  name: string;
+  tagline: string;
+  status: InitiativeStatus;
+  category: string;
+  icon: string; // heroicon key resolved in component
+  url?: string;
+  summary: string;
+  highlights: string[];
+  stats: { label: string; value: string }[];
+}
+
+export interface HelplineService {
+  key: string;
+  name: string;
+  nameDv: string;
+  desc: string;
+  icon: string;
+  providers: number;
+  avgWait: string;
+}
+
+export interface Specialist {
+  id: string;
+  name: string;
+  role: string;
+  service: string;
+  languages: string[];
+  rating: number;
+  sessions: number;
+  nextSlot: string;
+}
+
+export interface DevProject {
+  id: string;
+  name: string;
+  desc: string;
+  stack: string[];
+  status: "Active" | "Maintained" | "Seeking devs";
+  contributors: number;
+}

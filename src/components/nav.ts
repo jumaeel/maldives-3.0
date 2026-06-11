@@ -28,6 +28,12 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
+    heading: "Products & Initiatives",
+    items: [
+      { href: "/initiatives", label: "Initiatives", icon: "RocketLaunch" },
+    ],
+  },
+  {
     heading: "Knowledge & People",
     items: [
       { href: "/knowledge", label: "Knowledge Base", icon: "BookOpen" },
