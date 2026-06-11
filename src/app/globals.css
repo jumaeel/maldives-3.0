@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
+/* Class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Brand palette — Emerald green, gold accents, white */
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-200: #a7f3d0;
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+  --color-emerald-950: #022c22;
+
+  --color-gold-50: #fbf7eb;
+  --color-gold-100: #f6ecc9;
+  --color-gold-200: #efd98e;
+  --color-gold-300: #e7c45a;
+  --color-gold-400: #e0b13a;
+  --color-gold-500: #d4972a;
+  --color-gold-600: #b97720;
+  --color-gold-700: #95571d;
+  --color-gold-800: #7a451e;
+  --color-gold-900: #693a1d;
+
+  --font-display: var(--font-display), Georgia, serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f8faf9;
+  --surface: #ffffff;
+  --surface-2: #f1f5f3;
+  --border: #e2e8e5;
+  --text: #0f1f1a;
+  --text-muted: #5b6b64;
+  --brand: #059669;
+  --brand-soft: #ecfdf5;
+}
+
+.dark {
+  --bg: #07120d;
+  --surface: #0d1b14;
+  --surface-2: #11261c;
+  --border: #1c3327;
+  --text: #e7f0eb;
+  --text-muted: #8ba398;
+  --brand: #34d399;
+  --brand-soft: #0f2419;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Arabic-inspired geometric pattern backgrounds */
+.pattern-bg {
+  background-image:
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--brand) 12%, transparent) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.pattern-hero {
+  background-image:
+    radial-gradient(at 18% 12%, color-mix(in srgb, #10b981 16%, transparent) 0, transparent 46%),
+    radial-gradient(at 85% 28%, color-mix(in srgb, #e0b13a 12%, transparent) 0, transparent 42%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23059669' stroke-opacity='0.10' stroke-width='1'%3E%3Cpath d='M40 0l40 40-40 40L0 40z'/%3E%3Cpath d='M40 16l24 24-24 24-24-24z'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.45s ease both; }

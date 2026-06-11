@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Maldives 3.0
 
-## Getting Started
+> *"Inspired by the Best Three Generations"*
+>
+> A technology-driven research, education and reform platform helping Maldivian
+> society draw closer to the Quran and Sunnah upon the understanding of the
+> Salaf as-Salih (the Sahabah, Tabi'un and Atba' al-Tabi'in).
 
-First, run the development server:
+A modern, mobile-first platform that identifies societal issues, researches
+them, gathers scholarly evidence, proposes practical solutions, coordinates
+awareness campaigns, and tracks real implementation — blending the feel of
+GitHub Issues, Notion, Wikipedia, Trello and a community forum with a clean,
+modern Islamic design.
+
+## Tech stack
+
+| Layer | Choice |
+| --- | --- |
+| Framework | **Next.js 16** (App Router) — App Router is identical to the requested v15; v16 is the current stable |
+| Language | **TypeScript** |
+| Styling | **Tailwind CSS v4** (CSS-first `@theme`, class-based dark mode) |
+| Forms | **React Hook Form** + **Zod** (`@hookform/resolvers`) |
+| Icons | **Heroicons** (+ `hugeicons-react` available) |
+| Fonts | Geist (sans) + Fraunces (display) via `next/font` |
+
+> **Note on backend** — the original brief also lists Supabase/PostgreSQL. This
+> build delivers the complete **frontend** per the specified frontend stack,
+> driven by a typed mock-data layer (`src/lib/data.ts`) that mirrors the intended
+> schema. Swapping the data layer for Supabase queries is a drop-in next step.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Modules & routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route | Module |
+| --- | --- |
+| `/` | Landing + dashboard (brand positioning, headline stats, featured issues) |
+| `/map` | **Society Map** — 14 sectors with issue counts and scores |
+| `/issues` | **Issue Management** — filter/sort by sector, status, votes |
+| `/issues/[id]` | Issue detail with 7 tabs: Overview · Research · Islamic Evidence · Solutions · Campaigns · Institutions · Updates, plus the 9-stage status flow |
+| `/issues/new` | Submit-issue form (React Hook Form + Zod validation) |
+| `/knowledge` | **Knowledge Base** — searchable library with type filters |
+| `/academy` | **Learning Academy** — 3 levels, courses, progress, certificates |
+| `/community` | **Community Portal** — forums, leaderboard, badges, events |
+| `/campaigns` | **Campaign Management** — objectives, tasks, volunteers, impact |
+| `/authorities` | **Authority Engagement CRM** — institution pipeline & table |
+| `/analytics` | **Analytics Dashboard** — sector progress, growth & score charts |
+| `/score` | **Maldives Society Score** — overall + per-sector + yearly trend |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design system
 
-## Learn More
+- **Palette** — emerald green, gold accents, white (defined in `globals.css` `@theme`).
+- **Dark / light mode** — class-based, no-flash inline theme script, toggle in the top bar.
+- **Arabic-inspired geometric patterns** — SVG hero background + dot grid utilities.
+- **Roles** — a demo role switcher (Guest · Volunteer · Core Team · Scholar · Administrator)
+  and an EN / ދިވެހި / عربي language switcher in the top bar.
+- **Scholar gate** — issues display an "Awaiting scholar approval" vs "Officially
+  published" state, reflecting the rule that scholar approval precedes publication.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/                 # App Router pages (one folder per module)
+  components/          # Sidebar, Topbar, Footer, UI primitives, feature components
+  lib/
+    types.ts          # Domain types (Issue, Category, Course, Campaign, …)
+    data.ts           # Typed mock data + helpers (mirrors intended DB schema)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Next steps
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Wire the data layer to **Supabase** (auth, RBAC, real-time, file uploads, audit logs).
+2. Add full i18n for **Dhivehi / English / Arabic** (RTL-aware).
+3. AI features — issue categorization, research summaries, recommendation engine.
+4. PDF report generator + public transparency API for the mobile app.
