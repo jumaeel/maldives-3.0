@@ -5,6 +5,7 @@ import {
   MapIcon, ChartBarIcon, SparklesIcon,
 } from "@heroicons/react/24/outline";
 import { Card, StatCard, Badge, ProgressBar } from "@/components/ui";
+import { HowItWorks } from "@/components/how-it-works";
 import { categories, issues, metrics, campaigns, SEVERITY_COLORS, categoryName } from "@/lib/data";
 
 export default function Home() {
@@ -46,6 +47,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* How the platform works — worked example */}
+      <HowItWorks />
 
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Stats */}
