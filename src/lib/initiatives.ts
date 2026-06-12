@@ -49,6 +49,29 @@ export const initiatives: Initiative[] = [
       { label: "Cost to join", value: "Free" },
     ],
   },
+  {
+    slug: "kalhuoffummi-think-tank",
+    name: "Kalhuoffummi Think Tank",
+    tagline: "Defending the Maldives in the ideological war",
+    status: "Building",
+    category: "Research & Content",
+    icon: "Ship",
+    summary:
+      "A think tank for rigorous research and compelling content on the social and religious issues facing the Maldives. Just as the Kalhuoffummi — the ship Bodu Thakurufaanu sailed — helped liberate the Maldives from Portuguese occupation, this initiative confronts today's battle: the ideological war over the hearts, minds and identity of the Maldivian people.",
+    highlights: [
+      "Research on social & religious issues",
+      "Content creation — essays, video, social",
+      "Countering secularising & ideological narratives",
+      "Grounded in the Quran & Sunnah",
+      "Building intellectual resilience in society",
+    ],
+    stats: [
+      { label: "Focus areas", value: "6" },
+      { label: "Researchers", value: "12+" },
+      { label: "Output", value: "Open" },
+      { label: "Established", value: "2026" },
+    ],
+  },
 ];
 
 export const findInitiative = (slug: string) =>

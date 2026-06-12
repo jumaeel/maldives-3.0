@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui";
 import { InitiativeIcon } from "@/components/initiative-icon";
 import { HelplineDetail } from "@/components/helpline-detail";
 import { DevsDetail } from "@/components/devs-detail";
+import { KalhuoffummiDetail } from "@/components/kalhuoffummi-detail";
 import { initiatives, findInitiative } from "@/lib/initiatives";
 
 export function generateStaticParams() {
@@ -95,6 +96,7 @@ export default async function InitiativeDetail({
       <div className="mt-12">
         {slug === "helpline-mv" && <HelplineDetail />}
         {slug === "devs-fisabilillah" && <DevsDetail />}
+        {slug === "kalhuoffummi-think-tank" && <KalhuoffummiDetail />}
       </div>
     </div>
   );
