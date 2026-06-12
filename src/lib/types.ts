@@ -152,6 +152,7 @@ export interface Initiative {
   summary: string;
   highlights: string[];
   stats: { label: string; value: string }[];
+  revealed?: boolean; // when false, the name & details are hidden publicly
 }
 
 export interface HelplineService {

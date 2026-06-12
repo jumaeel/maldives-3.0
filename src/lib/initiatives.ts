@@ -24,6 +24,7 @@ export const initiatives: Initiative[] = [
       { label: "Confidential", value: "100%" },
       { label: "Languages", value: "3" },
     ],
+    revealed: false,
   },
   {
     slug: "devs-fisabilillah",
@@ -48,6 +49,7 @@ export const initiatives: Initiative[] = [
       { label: "Open source", value: "All" },
       { label: "Cost to join", value: "Free" },
     ],
+    revealed: true,
   },
   {
     slug: "kalhuoffummi-think-tank",
@@ -71,11 +73,16 @@ export const initiatives: Initiative[] = [
       { label: "Output", value: "Open" },
       { label: "Established", value: "2026" },
     ],
+    revealed: false,
   },
 ];
 
 export const findInitiative = (slug: string) =>
   initiatives.find((i) => i.slug === slug);
+
+// Only revealed initiatives expose their name, details and a detail page.
+export const isRevealed = (i: Initiative) => i.revealed === true;
+export const revealedInitiatives = initiatives.filter(isRevealed);
 
 export const helplineServices: HelplineService[] = [
   {

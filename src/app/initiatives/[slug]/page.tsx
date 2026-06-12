@@ -7,10 +7,10 @@ import { InitiativeIcon } from "@/components/initiative-icon";
 import { HelplineDetail } from "@/components/helpline-detail";
 import { DevsDetail } from "@/components/devs-detail";
 import { KalhuoffummiDetail } from "@/components/kalhuoffummi-detail";
-import { initiatives, findInitiative } from "@/lib/initiatives";
+import { findInitiative, isRevealed, revealedInitiatives } from "@/lib/initiatives";
 
 export function generateStaticParams() {
-  return initiatives.map((i) => ({ slug: i.slug }));
+  return revealedInitiatives.map((i) => ({ slug: i.slug }));
 }
 
 export async function generateMetadata({
@@ -20,7 +20,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const it = findInitiative(slug);
-  return { title: it ? it.name : "Initiative" };
+  return { title: it && isRevealed(it) ? it.name : "Initiative" };
 }
 
 const STATUS_TONE: Record<string, string> = {
@@ -37,7 +37,7 @@ export default async function InitiativeDetail({
 }) {
   const { slug } = await params;
   const it = findInitiative(slug);
-  if (!it) notFound();
+  if (!it || !isRevealed(it)) notFound();
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10">
