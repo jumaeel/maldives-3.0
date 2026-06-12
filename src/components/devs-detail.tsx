@@ -89,7 +89,7 @@ export function DevsDetail() {
         </div>
         <div className="flex shrink-0 gap-3">
           <a
-            href="https://github.com/maldives-3-0"
+            href="https://github.com/jumaeel/devs-fisabilillah"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-5 py-3 font-semibold text-white transition hover:bg-emerald-700"

@@ -32,7 +32,7 @@ export const initiatives: Initiative[] = [
     status: "Live",
     category: "Technology & Da'wah",
     icon: "Code",
-    url: "https://github.com/maldives-3-0",
+    url: "https://jumaeel.github.io/devs-fisabilillah/",
     summary:
       "A brotherhood of Muslim developers helping one another grow in skill and deen — mentoring, reviewing code, and building beneficial, open-source technology for the ummah. Work that benefits people is sadaqah jariyah; here it is done with sincerity and excellence (ihsan).",
     highlights: [
