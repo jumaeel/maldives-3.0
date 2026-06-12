@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
 import { Topbar } from "@/components/topbar";
@@ -8,7 +8,7 @@ import { themeScript } from "@/components/theme-toggle";
 
 // One geometric sans family across the whole app (headings + body),
 // matching the "Islamic services, made simple" style.
-const poppins = Poppins({
+const sora = Sora({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} h-full`}
+      className={`${sora.variable} h-full`}
       suppressHydrationWarning
     >
       <head>
