@@ -21,6 +21,10 @@ function initials(name: string) {
     .toUpperCase();
 }
 
+// Full member profiles are hidden for now. Flip on by setting the env var
+// NEXT_PUBLIC_SHOW_TEAM=1 (e.g. in the deploy workflow) once real names are ready.
+const showFullTeam = process.env.NEXT_PUBLIC_SHOW_TEAM === "1";
+
 export default function TeamPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-10">
@@ -39,6 +43,18 @@ export default function TeamPage() {
         ))}
       </div>
 
+      {!showFullTeam && (
+        <Card className="border-dashed p-10 text-center">
+          <p className="font-display text-xl font-semibold">Full team profiles coming soon</p>
+          <p className="mx-auto mt-2 max-w-md text-sm text-text-muted">
+            We&apos;re finalising our founder, operating team, scholars committee and core team.
+            Detailed profiles — with qualifications and platform ranks — will appear here shortly, in shā’ Allah.
+          </p>
+        </Card>
+      )}
+
+      {showFullTeam && (
+      <>
       {/* Founder */}
       <section className="mb-12">
         <h2 className="mb-4 font-display text-2xl font-semibold">Founder</h2>
@@ -112,6 +128,8 @@ export default function TeamPage() {
           <span className="font-mono text-text">src/lib/team.ts</span> to add your real team.
         </p>
       </Card>
+      </>
+      )}
     </div>
   );
 }
