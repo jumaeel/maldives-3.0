@@ -34,6 +34,12 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
+    heading: "About",
+    items: [
+      { href: "/team", label: "Our Team", icon: "Users" },
+    ],
+  },
+  {
     heading: "Knowledge & People",
     items: [
       { href: "/knowledge", label: "Knowledge Base", icon: "BookOpen" },
