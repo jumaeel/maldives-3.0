@@ -28,7 +28,8 @@
   --color-gold-800: #7a451e;
   --color-gold-900: #693a1d;
 
-  --font-display: var(--font-display), Georgia, serif;
+  /* Headings share the geometric sans family (heavier weights applied per-element) */
+  --font-display: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {

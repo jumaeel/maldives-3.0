@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
 import { Topbar } from "@/components/topbar";
 import { Footer } from "@/components/footer";
 import { themeScript } from "@/components/theme-toggle";
 
-const geistSans = Geist({
+// One geometric sans family across the whole app (headings + body),
+// matching the "Islamic services, made simple" style.
+const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-});
-
-const fraunces = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${fraunces.variable} h-full`}
+      className={`${jakarta.variable} h-full`}
       suppressHydrationWarning
     >
       <head>
