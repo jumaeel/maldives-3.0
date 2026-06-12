@@ -20,7 +20,7 @@ export default function Home() {
             <Badge className="bg-gold-100 text-gold-800 dark:bg-gold-900/40 dark:text-gold-300">
               <SparklesIcon className="h-3.5 w-3.5" /> Inspired by the Best Three Generations
             </Badge>
-            <h1 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               A Maldives closer to the{" "}
               <span className="text-emerald-600 dark:text-emerald-400">Quran &amp; Sunnah</span>
             </h1>
