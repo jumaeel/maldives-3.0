@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
 import { Topbar } from "@/components/topbar";
@@ -8,7 +8,7 @@ import { themeScript } from "@/components/theme-toggle";
 
 // One geometric sans family across the whole app (headings + body),
 // matching the "Islamic services, made simple" style.
-const jakarta = Plus_Jakarta_Sans({
+const poppins = Poppins({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakarta.variable} h-full`}
+      className={`${poppins.variable} h-full`}
       suppressHydrationWarning
     >
       <head>
